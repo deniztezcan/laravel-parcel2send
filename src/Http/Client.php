@@ -7,19 +7,11 @@ class Client extends AbstractClient
 {
 
 	public function request(
-		string $method,
-        string $endpoint,
+		string $endpoint,
         array $parameters = [],
         array $headers = []
 	): Response {
-		switch ($method) {
-            case 'GET':
-                return $this->get($endpoint, $parameters, $headers);
-                break;
-            case 'POST':
-                return $this->post($endpoint, $parameters, $headers);
-                break;
-        }
+		return $this->post($endpoint, $parameters, $headers);
 	}
 
 }

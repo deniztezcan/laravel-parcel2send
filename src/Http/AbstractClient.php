@@ -32,20 +32,6 @@ class AbstractClient
         ];
     }
 
-    public function get(
-        string $url,
-        array $query = [],
-        array $headers = []
-    ): Response {
-        return $this->client->request('GET', $this->getApiURL($url), [
-            'query'   => $query,
-            'headers' => array_merge(
-                $this->getDefaultHeaders('GET', $url, json_encode([])),
-                $headers,
-            ),
-        ]);
-    }
-
     public function post(
         string $url,
         array $parameters = [],
