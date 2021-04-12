@@ -20,6 +20,7 @@ class Shipment
 		    'weight' 			=> $weight,
 		    'labels_num' 		=> $labelsNumber,
 		    'webshop_order_id' 	=> $webshopsOrderId,
+		    'items'				=> false
 		];
 
 		$returnable = array_merge($returnable, $clientAddress);

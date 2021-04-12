@@ -31,20 +31,19 @@ class Parcel2Send
     		Shipment::create($shippingOption, $senderAddress, $returnAddress, $clientAddress, $weight, $labelsNumber, $webshopsOrderId)
     	);
 
-    	return json_decode($response, true);
+    	return json_decode($response->getBody()->getContents(), true);
     }
 
     public function label(
     	array $shipmentIds,
-    	array $webshopsOrderIds,
     	string $printer = "zebra"
     ): array {
     	$response = $this->client->request(
     		'/nl/api/shipment/labels',
-    		Label::create($shipmentIds, $webshopsOrderIds, $printer)
+    		Label::create($shipmentIds, $printer)
     	);
 
-    	return json_decode($response, true);
+    	return json_decode($response->getBody()->getContents(), true);
     }
 
 }
