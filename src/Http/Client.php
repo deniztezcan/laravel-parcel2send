@@ -5,7 +5,6 @@ use GuzzleHttp\Psr7\Response;
 
 class Client extends AbstractClient
 {
-
 	public function request(
 		string $endpoint,
         array $parameters = [],
@@ -13,5 +12,4 @@ class Client extends AbstractClient
 	): Response {
 		return $this->post($endpoint, $parameters, $headers);
 	}
-
 }
